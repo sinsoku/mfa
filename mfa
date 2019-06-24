@@ -19,7 +19,7 @@ import sys, os, json;
 from hashlib import sha1;
 args = json.load(sys.stdin);
 hash = sha1(json.dumps(args, sort_keys=True)).hexdigest();
-print hash.replace(':', '_').replace(os.path.sep, '_').replace('/', '_');
+print(hash.replace(':', '_').replace(os.path.sep, '_').replace('/', '_'));
 EOS
 )
 CACHE_KEY=$(echo -n "$ROLE_ARGS" | python -c "$CREATE_CACHE_KEY")
